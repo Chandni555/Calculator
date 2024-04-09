@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .son {
+            display: flex;
+            width: 300px;
+            height: 450px;
+            background-color: rgb(7, 43, 80);
+            flex-wrap: wrap;
+        }
+        
+        button {
+            width: 75px;
+            height: 75px;
+            cursor: pointer;
+            border: 1px solid wheat;
+            font-size: 20px;
+            color: white;
+            outline: none;
+        }
+        
+        input {
+            width: 300px;
+            text-align: right;
+            font-size: 20px;
+            padding: 20px 20px;
+            border: none;
+            outline: none;
+            background-color: black;
+            color: white;
+        }
+        
+        .father {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        #two {
+            width: 150px;
+            margin-top: -75px;
+            background-color: rgb(7, 43, 80);
+        }
+        
+        #three {
+            height: 150px;
+            background-color: goldenrod
+        }
+        
+        #four {
+            margin-top: -75px;
+            background-color: rgb(7, 43, 80);
+        }
+        
+        .one {
+            background-color: rgb(7, 43, 80);
+        }
+        
+        .five {
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+            <input type="text" id="r">
+            <button class="five" onclick="ClearData()">c</button>
+            <button class="five" onclick="SingleData()">cc</button>
+            <button class="five" onclick="GetData('/')">/</button>
+            <button class="five" onclick="GetData('*')">X</button>
+            <button class="one" onclick="GetData('7')">7</button>
+            <button class="one" onclick="GetData('8')">8</button>
+            <button class="one" onclick="GetData('9')">9</button>
+            <button class="five" onclick="GetData('-')">-</button>
+            <button class="one" onclick="GetData('4')">4</button>
+            <button class="one" onclick="GetData('5')">5</button>
+            <button class="one" onclick="GetData('6')">6</button>
+            <button class="five" onclick="GetData('+')">+</button>
+            <button class="one" onclick="GetData('1')">1</button>
+            <button class="one" onclick="GetData('2')">2</button>
+            <button class="one" onclick="GetData('3')">3</button>
+            <button id="three" onclick="Calculate()">=</button>
+
+            <button id="two" onclick="GetData('0')">0</button>
+
+            <button id="four" onclick="GetData('.')">.</button>
+
+
+        </div>
+    </div>
+    <script>
+        const res = document.getElementById("r");
+
+        function ClearData() {
+            document.getElementById("r").value = "";
+        }
+
+        function GetData(a) {
+            res.value += a;
+        }
+
+        function Calculate() {
+            res.value = eval(res.value);
+        }
+
+        function SingleData() {
+            res.value = res.value.slice(0, -1);
+        }
+    </script>
+
+</body>
+
+</html>
